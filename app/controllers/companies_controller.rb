@@ -6,11 +6,11 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.new(company_params)
-    @company.user = current_user
     authorize @company
+    @company.user = current_user
 
     if @company.save
-      redirect_to :new
+      redirect_to root_path
     else
       render :new
     end
