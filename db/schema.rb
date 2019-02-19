@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2019_02_18_200932) do
   create_table "flights", force: :cascade do |t|
     t.string "origin"
     t.string "destiny"
-    t.integer "date"
+    t.date "date"
     t.integer "capacity"
     t.float "price"
     t.text "description"
