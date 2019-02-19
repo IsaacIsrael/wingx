@@ -12,4 +12,13 @@ class FlightPolicy < ApplicationPolicy
   def destroy?
     record.company.user == user
   end
+
+  def create?
+    user.company
+  end
+
+  def new?
+    user.company
+  end
+
 end
