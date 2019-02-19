@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
   def new
-    @companies = Company.new
-    authorize @companies
+    @company = Company.new
+    authorize @company
   end
 
   def create
