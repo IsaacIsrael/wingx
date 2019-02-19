@@ -17,7 +17,7 @@ class FlightsController < ApplicationController
     @flight.company = current_user.company
     authorize @flight
     if @flight.save
-      redirect_to @flight
+      redirect_to root_path
     else
       render :new
     end
