@@ -6,10 +6,18 @@ class FlightPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    user.company
   end
 
   def new?
+    user.company
+  end
+
+  def show
+    true
+  end
+
+  def index
     true
   end
 end

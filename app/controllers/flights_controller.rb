@@ -1,7 +1,8 @@
 class FlightsController < ApplicationController
   before_action :find_flight, only: [:show, :edit, :update, :destroy]
   def index
-    @flights = Flight.all
+    # @flights = Flight.all
+    @flights = policy_scope(Flight).order(created_at: :desc)
   end
 
   def show; end
@@ -13,6 +14,7 @@ class FlightsController < ApplicationController
 
   def create
     @flight = Flight.new(flight_params)
+    @flight.company = current_user.company
     authorize @flight
     if @flight.save
       redirect_to @flight

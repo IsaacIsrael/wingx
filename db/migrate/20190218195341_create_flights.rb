@@ -3,7 +3,7 @@ class CreateFlights < ActiveRecord::Migration[5.2]
     create_table :flights do |t|
       t.string :origin
       t.string :destiny
-      t.integer :date
+      t.date :date
       t.integer :capacity
       t.float :price
       t.text :description
