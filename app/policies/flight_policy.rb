@@ -5,6 +5,14 @@ class FlightPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    true
+  end
+
+  def destroy?
+    record.company.user == user
+  end
+
   def create?
     user.company
   end
@@ -13,11 +21,4 @@ class FlightPolicy < ApplicationPolicy
     user.company
   end
 
-  def show
-    true
-  end
-
-  def index
-    true
-  end
 end

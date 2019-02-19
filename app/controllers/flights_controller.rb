@@ -1,7 +1,6 @@
 class FlightsController < ApplicationController
   before_action :find_flight, only: [:show, :edit, :update, :destroy]
   def index
-    # @flights = Flight.all
     @flights = policy_scope(Flight).order(created_at: :desc)
   end
 
@@ -32,13 +31,14 @@ class FlightsController < ApplicationController
 
   def destroy
     @flight.destroy
-    redirect_to @flights
+    redirect_to flights_companies_path
   end
 
   private
 
   def find_flight
     @flight = Flight.find(params[:id])
+    authorize @flight
   end
 
   def flight_params
