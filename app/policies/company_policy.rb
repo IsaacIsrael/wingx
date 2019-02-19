@@ -6,10 +6,6 @@ class CompanyPolicy < ApplicationPolicy
   end
 
   def create?
-    true
-  end
-
-  def new?
-    true
+    user.company.nil?
   end
 end
