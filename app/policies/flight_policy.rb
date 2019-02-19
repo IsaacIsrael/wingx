@@ -3,15 +3,25 @@ class FlightPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
-
-
-  end
-
-  def index?
-    true
   end
 
   def display_company?
     true
+  end
+
+  def show?
+    true
+  end
+
+  def destroy?
+    record.company.user == user
+  end
+
+  def create?
+    user.company
+  end
+
+  def new?
+    user.company
   end
 end
