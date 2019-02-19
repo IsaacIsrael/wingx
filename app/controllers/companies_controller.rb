@@ -1,12 +1,13 @@
 class CompaniesController < ApplicationController
   def new
     @companies = Company.new
+    authorize @companies
   end
 
   def create
-    @user = User.find(params[:user_id])
     @company = Company.new(company_params)
-    @company.user = @user
+    @company.user = current_user
+
     if @company.save
       redirect_to @company
     else
