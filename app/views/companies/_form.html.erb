@@ -1,0 +1,9 @@
+<%= simple_form_for @company do |f| %>
+  <%= f.input :name %>
+  <%= f.input :cnpj %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <div class="actions text-right">
+    <%= f.submit "Create", class: "btn btn-primary" %>
+  </div>
+<% end %>
