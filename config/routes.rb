@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :companies, except: [:show] do
     collection do
-      get 'flights', to: 'flights#index'
+      get 'flights', to: 'flights#display_company'
     end
   end
   resources :flights, only: [:show, :destroy, :new, :create]

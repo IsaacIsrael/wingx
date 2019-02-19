@@ -1,7 +1,9 @@
 class FlightsController < ApplicationController
   before_action :find_flight, only: [:show, :edit, :update, :destroy]
-  def index
-    @flights = policy_scope(Flight).order(created_at: :desc)
+
+  def display_company
+    @flights = policy_scope(Flight).where(company: current_user.company).order(created_at: :desc)
+    authorize @flights
   end
 
   def show; end
