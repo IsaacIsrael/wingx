@@ -8,10 +8,12 @@ class FlightsController < ApplicationController
 
   def new
     @flight = Flight.new
+    authorize @flight
   end
 
   def create
     @flight = Flight.new(flight_params)
+    authorize @flight
     if @flight.save
       redirect_to @flight
     else
