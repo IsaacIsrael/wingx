@@ -7,9 +7,10 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     @company.user = current_user
+    authorize @company
 
     if @company.save
-      redirect_to @company
+      redirect_to :new
     else
       render :new
     end
@@ -33,6 +34,6 @@ class CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:name, :cnpj, :image_url, :user_id)
+    params.require(:company).permit(:name, :cnpj, :photo)
   end
 end
