@@ -2,6 +2,6 @@
 <p>Find me in app/views/flights/show.html.erb</p>
 
 <% if policy(@flight).destroy? %>
-  <%= link_to "Delete", company_path, method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to "Delete", flight_path, method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %>
 

@@ -28,7 +28,7 @@ class FlightsController < ApplicationController
 
   def destroy
     @flight.destroy
-    redirect_to @flights
+    redirect_to flights_companies_path
   end
 
   private

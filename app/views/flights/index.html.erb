@@ -4,6 +4,6 @@
 
 <% @flights.each do |flight| %>
   <% if policy(flight).destroy? %>
-    <%= link_to "Delete", company_flights_path(flight), method: :delete, data: { confirm: "Are you sure?" } %>
+    <%= link_to "Delete", flight_path(flight), method: :delete, data: { confirm: "Are you sure?" } %>
   <% end %>
 <% end %>
