@@ -19,7 +19,7 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <% unless current_user.company %>
               <li>
-                <%= link_to "#" do %>
+                <%= link_to new_company_path do %>
                    Create Company
                 <% end %>
               </li>
