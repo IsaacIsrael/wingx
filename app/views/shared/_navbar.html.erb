@@ -17,7 +17,7 @@
         <div class="dropdown">
           <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <% unless current_user.company %>
+            <% if policy(Company).new? %>
               <li>
                 <%= link_to new_company_path do %>
                    Create Company
