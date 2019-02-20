@@ -13,6 +13,10 @@ class CompanyPolicy < ApplicationPolicy
     company?
   end
 
+  def order?
+    company?
+  end
+
   private
 
   def company?

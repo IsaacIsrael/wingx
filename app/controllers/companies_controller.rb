@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: %i[show]
+  before_action :set_company, only: %i[show order]
 
   def new
     @company = Company.new
@@ -20,20 +20,7 @@ class CompaniesController < ApplicationController
 
   def show; end
 
-  # def edit
-  #   @company = Company.find(params[:id])
-  # end
-
-  # def update
-  #   @company.update(company_params)
-  #   redirect_to @company
-  # end
-
-  # def destroy
-  #   @company = Company.find(params[:id])
-  #   @company.destroy
-  #   redirect_to @companies
-  # end
+  def order; end
 
   private
 

@@ -10,6 +10,9 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+      <% if policy(Company).order? %>
+       <%= link_to "Company Orders",company_orders_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <% end%>
       <% if policy(Company).show? %>
        <%= link_to "Company Flights",company_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% end%>
@@ -40,7 +43,7 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to "Join as a Company", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%# link_to "Join as a Company",new_user_registration_path(company: true), class: "navbar-wagon-item navbar-wagon-link" %>
       <!-- Login link (when logged out) -->
       <%= link_to "Login", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
