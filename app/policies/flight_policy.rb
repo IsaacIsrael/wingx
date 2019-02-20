@@ -5,10 +5,6 @@ class FlightPolicy < ApplicationPolicy
     end
   end
 
-  def display_company?
-    user.company
-  end
-
   def show?
     true
   end
