@@ -10,16 +10,12 @@ class CompanyPolicy < ApplicationPolicy
   end
 
   def show?
-    company_owner?
+    comapany?
   end
 
   private
 
   def comapany?
     user.company
-  end
-
-  def company_owner?
-    comapany? && record.user == user
   end
 end
