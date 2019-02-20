@@ -6,6 +6,10 @@
 <% end %>
 
 
-<%= @flight.destiny %>
-<%= @flight.description %>
-
+<h1><%= @flight.company.name %></h1>
+<h3>From: <%= @flight.origin %></h3>
+<h3>To: <%= @flight.destiny %></h3>
+<p>Date: <%= @flight.date %></p>
+<p>Flight capacity: <%= @flight.capacity %> passengers.</p>
+<p><strong>R$ <%= @flight.price %></strong></p>
+<p><%= @flight.description %></p>
