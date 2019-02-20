@@ -1,5 +1,3 @@
-<h1>Flights#show</h1>
-<p>Find me in app/views/flights/show.html.erb</p>
 
 <% if policy(@flight).destroy? %>
   <%= link_to "Delete", flight_path, method: :delete, data: { confirm: "Are you sure?" } %>
@@ -7,9 +5,9 @@
 
 
 <h1><%= @flight.company.name %></h1>
-<h3>From: <%= @flight.origin %></h3>
-<h3>To: <%= @flight.destiny %></h3>
+<h3><strong>From:</strong> <%= @flight.origin %></h3>
+<h3><strong>To:</strong> <%= @flight.destiny %></h3>
 <p>Date: <%= @flight.date %></p>
 <p>Flight capacity: <%= @flight.capacity %> passengers.</p>
 <p><strong>R$ <%= @flight.price %></strong></p>
-<p><%= @flight.description %></p>
+<p>Informations: <br> <%= @flight.description %></p>
