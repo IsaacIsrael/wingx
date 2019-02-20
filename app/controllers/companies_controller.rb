@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  before_action :set_company, only: %i[show]
+
   def new
     @company = Company.new
     authorize @company
@@ -16,22 +18,29 @@ class CompaniesController < ApplicationController
     end
   end
 
-  def edit
-    @company = Company.find(params[:id])
-  end
+  def show; end
 
-  def update
-    @company.update(company_params)
-    redirect_to @company
-  end
+  # def edit
+  #   @company = Company.find(params[:id])
+  # end
 
-  def destroy
-    @company = Company.find(params[:id])
-    @company.destroy
-    redirect_to @companies
-  end
+  # def update
+  #   @company.update(company_params)
+  #   redirect_to @company
+  # end
+
+  # def destroy
+  #   @company = Company.find(params[:id])
+  #   @company.destroy
+  #   redirect_to @companies
+  # end
 
   private
+
+  def set_company
+    @company = Company.find(params[:id])
+    authorize @company
+  end
 
   def company_params
     params.require(:company).permit(:name, :cnpj, :photo)

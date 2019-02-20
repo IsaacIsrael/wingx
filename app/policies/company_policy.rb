@@ -6,6 +6,20 @@ class CompanyPolicy < ApplicationPolicy
   end
 
   def create?
-    user.company.nil?
+    !comapany?
+  end
+
+  def show?
+    company_owner?
+  end
+
+  private
+
+  def comapany?
+    user.company
+  end
+
+  def company_owner?
+    comapany? && record.user == user
   end
 end
