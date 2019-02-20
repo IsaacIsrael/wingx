@@ -1,5 +1,6 @@
 class FlightsController < ApplicationController
   before_action :find_flight, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:show]
 
   def display_company
     @flights = policy_scope(Flight).where(company: current_user.company)

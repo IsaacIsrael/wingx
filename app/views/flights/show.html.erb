@@ -1,13 +1,20 @@
-
-<% if policy(@flight).destroy? %>
-  <%= link_to "Delete", flight_path, method: :delete, data: { confirm: "Are you sure?" } %>
-<% end %>
-
-
-<h1><%= @flight.company.name %></h1>
-<h3><strong>From:</strong> <%= @flight.origin %></h3>
-<h3><strong>To:</strong> <%= @flight.destiny %></h3>
-<p>Date: <%= @flight.date %></p>
-<p>Flight capacity: <%= @flight.capacity %> passengers.</p>
-<p><strong>R$ <%= @flight.price %></strong></p>
-<p>Informations: <br> <%= @flight.description %></p>
+<section>
+  <div class="container">
+    <div class="card-info">
+    <h1><%= @flight.company.name %></h1>
+    <h3><strong>From:</strong> <%= @flight.origin %></h3>
+    <h3><strong>To:</strong> <%= @flight.destiny %></h3>
+    <p>Date: <%= @flight.date %></p>
+    <p>Flight capacity: <%= @flight.capacity %> passengers.</p>
+    <p><strong>R$ <%= @flight.price %></strong></p>
+    <p>Informations: <br> <%= @flight.description %></p>
+    </div>
+    <%= link_to 'Back to Flights', root_path, class: "btn btn-primary" %>
+    <% if policy(@flight).edit? %>
+    <%= link_to "Edit Flight", flight_path, class: "btn btn-primary " %>
+    <% end %>
+    <% if policy(@flight).destroy? %>
+    <%= link_to "Delete Flight", flight_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+    <% end %>
+  </div>
+</section>
