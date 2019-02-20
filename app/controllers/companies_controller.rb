@@ -22,21 +22,6 @@ class CompaniesController < ApplicationController
 
   def order; end
 
-  # def edit
-  #   @company = Company.find(params[:id])
-  # end
-
-  # def update
-  #   @company.update(company_params)
-  #   redirect_to @company
-  # end
-
-  # def destroy
-  #   @company = Company.find(params[:id])
-  #   @company.destroy
-  #   redirect_to @companies
-  # end
-
   private
 
   def set_company

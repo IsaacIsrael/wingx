@@ -5,11 +5,13 @@ class OrderPolicy < ApplicationPolicy
     end
   end
 
-  def new?
-    true
+  def create?
+    user?
   end
 
-  def create?
-    true
+  private
+
+  def user?
+    record.flight.company.user != user
   end
 end
