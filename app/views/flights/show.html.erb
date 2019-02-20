@@ -1,11 +1,18 @@
-<h1>Flights#show</h1>
-<p>Find me in app/views/flights/show.html.erb</p>
+<div class="container">
+  <h1><%= @flight.origin %> to <%= @flight.destiny %></h1>
+  <p> Date: <%= @flight.date %></p>
+  <p>Capacity: <%= @flight.capacity %></p>
+  <p>Price: R$ <%= @flight.price %></p>
+  <p>Description: <%= @flight.description %></p>
 
-<% if policy(@flight).destroy? %>
-  <%= link_to "Delete", flight_path, method: :delete, data: { confirm: "Are you sure?" } %>
-<% end %>
+  <div class="actions text-right">
+    <% if policy(@flight).destroy? %>
+    <%= link_to "Delete", flight_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+    <% end %>
+    <% if policy(@flight).update? %>
+    <%= link_to "Update", edit_flight_path(@flight), class: "btn btn-primary" %>
+    <% end %>
 
-
-<%= @flight.destiny %>
-<%= @flight.description %>
-
+    <%= link_to 'Back to list', flights_companies_path, class: "btn btn-primary"  %>
+  </div>
+</div>
