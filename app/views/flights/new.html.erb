@@ -1,6 +1,7 @@
-
-  <%= simple_form_for [@flight] do |f| %>
-    <%= f.label "What is the cocktail's name?" %>
+<section>
+  <div class="container">
+    <%= simple_form_for [@flight] do |f| %>
+    <h3><%= f.label "Create a new Flight" %></h3>
     <%= f.input :origin %>
     <%= f.input :destiny  %>
     <%= f.input :price %>
@@ -10,5 +11,6 @@
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
     <%= f.submit 'Create Flight', class: "btn btn-primary" %>
-  <% end %>
-
+    <% end %>
+  </div>
+</section>
