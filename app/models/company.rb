@@ -2,7 +2,7 @@ class Company < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   belongs_to :user
-  has_many :orders, dependent: :destroy
+  has_many :orders, trought: :flights, dependent: :destroy
   has_many :flights, dependent: :destroy
 
   validates :user, uniqueness: true
