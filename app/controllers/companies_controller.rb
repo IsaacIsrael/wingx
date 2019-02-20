@@ -38,7 +38,7 @@ class CompaniesController < ApplicationController
   private
 
   def set_company
-    @company = Company.find(params[:id])
+    @company = current_user.company
     authorize @company
   end
 
