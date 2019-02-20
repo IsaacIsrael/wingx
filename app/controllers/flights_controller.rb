@@ -1,10 +1,5 @@
 class FlightsController < ApplicationController
-  before_action :find_flight, only: [:show, :edit, :update, :destroy]
-
-  def display_company
-    @flights = policy_scope(Flight).where(company: current_user.company).order(created_at: :desc)
-    authorize @flights
-  end
+  before_action :find_flight, only: %i[show edit update destroy]
 
   def show; end
 
@@ -17,6 +12,7 @@ class FlightsController < ApplicationController
     @flight = Flight.new(flight_params)
     @flight.company = current_user.company
     authorize @flight
+
     if @flight.save
       redirect_to root_path
     else
@@ -33,7 +29,7 @@ class FlightsController < ApplicationController
 
   def destroy
     @flight.destroy
-    redirect_to flights_companies_path
+    redirect_to company_path(current_user.company)
   end
 
   private
