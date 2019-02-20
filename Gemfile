@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
+
+gem 'dotenv-rails', groups: [:development, :test]
+
 gem 'faker'
 gem 'bootsnap', require: false
 gem 'devise'

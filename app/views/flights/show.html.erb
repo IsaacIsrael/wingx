@@ -8,6 +8,7 @@
     <p>Flight capacity: <%= @flight.capacity %> passengers.</p>
     <p><strong>R$ <%= @flight.price %></strong></p>
     <p>Informations: <br> <%= @flight.description %></p>
+    <%= cl_image_tag( @flight.photo, width: 600, height: 440, crop: :fill, class: "card_image") %>
     </div>
     <%= link_to 'Back to Flights', root_path, class: "btn btn-primary" %>
     <% if policy(@flight).edit? %>
