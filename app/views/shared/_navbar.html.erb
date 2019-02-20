@@ -10,6 +10,9 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+      <% if policy(Company).order? %>
+       <%= link_to "Company Orders",company_orders_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <% end%>
       <% if policy(Company).show? %>
        <%= link_to "Company Flights",company_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% end%>
