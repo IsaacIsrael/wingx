@@ -35,7 +35,7 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to "Join as a Company", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%# link_to "Join as a Company",new_user_registration_path(company: true), class: "navbar-wagon-item navbar-wagon-link" %>
       <!-- Login link (when logged out) -->
       <%= link_to "Login", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
