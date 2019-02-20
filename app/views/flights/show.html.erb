@@ -12,7 +12,7 @@
         <p>Informations: <br> <%= @flight.description %></p>
         <%= cl_image_tag( @flight.photo, width: 600, height: 440, crop: :fill, class: "card_image") %>
       </div>
-      <%= link_to 'Back to Flights', company_path, class: "btn btn-primary" %>
+      <%= link_to 'Back to Flights', 'javascript:history.back()', class: "btn btn-primary" %>
       <% if policy(@flight).edit? %>
       <%= link_to "Edit Flight", edit_flight_path(@flight), class: "btn btn-primary " %>
       <% end %>
