@@ -22,7 +22,7 @@ class FlightsController < ApplicationController
     @flight.company = current_user.company
     authorize @flight
     if @flight.save
-      redirect_to root_path
+      redirect_to @flight
     else
       render :new
     end
@@ -53,6 +53,7 @@ class FlightsController < ApplicationController
                                    :date,
                                    :capacity,
                                    :price,
-                                   :description)
+                                   :description,
+                                   :photo)
   end
 end
