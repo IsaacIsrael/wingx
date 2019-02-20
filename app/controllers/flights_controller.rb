@@ -3,7 +3,7 @@ class FlightsController < ApplicationController
   before_action :find_flight, only: %i[show edit update destroy]
 
   def index
-    @flights = Flight.all
+    @flights = policy_scope(Flight)
   end
 
   def show; end
