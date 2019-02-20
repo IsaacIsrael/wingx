@@ -6,9 +6,17 @@
     <div>
       <h2><%= flight.origin %> to <%=flight.destiny %></h2>
       <p><%= flight.description %></p>
+      <% if policy(flight).destroy? %>
+        <%= link_to "Update", edit_flight_path(flight) %>
+      <% end %>
+      <% if policy(flight).destroy? %>
+        <%= link_to "Delete", flight_path(flight), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
     </div>
     <h2 class="card-trip-pricing">R$ <%= flight.price %></h2>
     <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/>
   </div>
 </div>
 <% end %>
+
+

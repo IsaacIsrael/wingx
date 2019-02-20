@@ -1,0 +1,11 @@
+<%= simple_form_for(@flight) do |f|%>
+  <%= f.input :origin %>
+  <%= f.input :destiny %>
+  <%= f.input :date %>
+  <%= f.input :capacity %>
+  <%= f.input :price %>
+  <%= f.input :description %>
+  <div class="actions text-right">
+    <%= f.submit "Update", class: "btn btn-primary" %>
+  </div>
+ <% end %>

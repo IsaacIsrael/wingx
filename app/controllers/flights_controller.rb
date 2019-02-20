@@ -28,7 +28,7 @@ class FlightsController < ApplicationController
 
   def update
     @flight.update(flight_params)
-    redirect_to @flight
+    redirect_to flight_path(@flight)
   end
 
   def destroy

@@ -7,6 +7,6 @@ Rails.application.routes.draw do
       get 'flights', to: 'flights#display_company'
     end
   end
-  resources :flights, only: [:show, :destroy, :new, :create]
+  resources :flights, only: [:show, :destroy, :new, :create, :edit, :update]
   resources :orders, only: [:index, :show, :new, :create]
 end

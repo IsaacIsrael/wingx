@@ -17,6 +17,10 @@ class FlightPolicy < ApplicationPolicy
     record.company.user == user
   end
 
+  def update?
+    record.company.user == user
+  end
+
   def create?
     user.company
   end
