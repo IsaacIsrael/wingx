@@ -19,10 +19,10 @@
                 <%= link_to "Delete", flight_path(flight), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
               <% end %>
               <% if policy(flight).edit? %>
-                <%= link_to "Edit", '#', class: 'btn btn-primary' %>
+                <%= link_to "Edit", edit_flight_path(flight), class: 'btn btn-primary' %>
               <% end %>
                <% if policy(flight).show? %>
-                <%= link_to "Show", '#', class: 'btn btn-primary' %>
+                <%= link_to "Show", flight_path(flight), class: 'btn btn-primary' %>
               <% end %>
               </div>
           </div>
