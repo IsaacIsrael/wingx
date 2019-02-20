@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   get 'company', to: 'companies#show', as: :company
   resources :flights
   resources :orders, only: [:index, :show, :new, :create]
-  get 'user/:id', to: 'users#show'
+  get 'user/:id', to: 'users#show', as: :user
   # resources :users, only: [:show]
 end

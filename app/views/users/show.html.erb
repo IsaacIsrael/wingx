@@ -1,4 +1,10 @@
 <h1>My Flights</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 
-<p><%= @user.orders %></p>
+<ul>
+  <% @user.orders.each do |order| %>
+    <li>
+      <%= order.flight.origin %>
+    </li>
+  <% end %>
+</ul>
