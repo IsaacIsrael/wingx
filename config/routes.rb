@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :companies, only: [:new, :create]
   get 'company', to: 'companies#show', as: :company
 
-  resources :flights, only: [:show, :destroy, :new, :create]
+  resources :flights, only: [:index,:show, :destroy, :new, :create]
   resources :orders, only: [:index, :show, :new, :create]
 end
