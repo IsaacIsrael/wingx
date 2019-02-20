@@ -1,5 +1,10 @@
 class FlightsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
   before_action :find_flight, only: %i[show edit update destroy]
+
+  def index
+    @flights = Flight.all
+  end
 
   def show; end
 
