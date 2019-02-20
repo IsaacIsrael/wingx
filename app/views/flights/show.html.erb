@@ -1,21 +1,25 @@
 <section>
   <div class="container">
-    <div class="card-info">
-    <h1><%= @flight.company.name %></h1>
-    <h3><strong>From:</strong> <%= @flight.origin %></h3>
-    <h3><strong>To:</strong> <%= @flight.destiny %></h3>
-    <p>Date: <%= @flight.date %></p>
-    <p>Flight capacity: <%= @flight.capacity %> passengers.</p>
-    <p><strong>R$ <%= @flight.price %></strong></p>
-    <p>Informations: <br> <%= @flight.description %></p>
-    <%= cl_image_tag( @flight.photo, width: 600, height: 440, crop: :fill, class: "card_image") %>
+    <div class="row">
+      <div class="col md-6 col-md-offset-3">
+      <div class="card-info">
+        <h1><%= @flight.company.name %></h1>
+        <h3><strong>From:</strong> <%= @flight.origin %></h3>
+        <h3><strong>To:</strong> <%= @flight.destiny %></h3>
+        <p>Date: <%= @flight.date %></p>
+        <p>Flight capacity: <%= @flight.capacity %> passengers.</p>
+        <p><strong>R$ <%= @flight.price %></strong></p>
+        <p>Informations: <br> <%= @flight.description %></p>
+        <%= cl_image_tag( @flight.photo, width: 600, height: 440, crop: :fill, class: "card_image") %>
+      </div>
+      <%= link_to 'Back to Flights', root_path, class: "btn btn-primary" %>
+      <% if policy(@flight).edit? %>
+      <%= link_to "Edit Flight", flight_path, class: "btn btn-primary " %>
+      <% end %>
+      <% if policy(@flight).destroy? %>
+      <%= link_to "Delete Flight", flight_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      <% end %>
+      </div>
     </div>
-    <%= link_to 'Back to Flights', root_path, class: "btn btn-primary" %>
-    <% if policy(@flight).edit? %>
-    <%= link_to "Edit Flight", flight_path, class: "btn btn-primary " %>
-    <% end %>
-    <% if policy(@flight).destroy? %>
-    <%= link_to "Delete Flight", flight_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-    <% end %>
   </div>
 </section>
