@@ -1,18 +1,8 @@
 <section>
   <div class="container">
     <div class="col md-6 col-md-offset-3">
-      <%= simple_form_for [@flight] do |f| %>
-      <h3><%= f.label "Create a new Flight" %></h3>
-      <%= f.input :origin %>
-      <%= f.input :destiny  %>
-      <%= f.input :price %>
-      <%= f.input :date %>
-      <%= f.input :capacity %>
-      <%= f.input :description %>
-      <%= f.input :photo %>
-      <%= f.input :photo_cache, as: :hidden %>
-      <%= f.submit 'Create Flight', class: "btn btn-primary" %>
-      <% end %>
+      <h3>Create a new Flight</h3>
+      <%= render 'form', flight: @flight %>
     </div>
   </div>
 </section>

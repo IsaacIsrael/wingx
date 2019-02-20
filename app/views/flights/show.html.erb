@@ -12,9 +12,9 @@
         <p>Informations: <br> <%= @flight.description %></p>
         <%= cl_image_tag( @flight.photo, width: 600, height: 440, crop: :fill, class: "card_image") %>
       </div>
-      <%= link_to 'Back to Flights', root_path, class: "btn btn-primary" %>
+      <%= link_to 'Back to Flights', company_path, class: "btn btn-primary" %>
       <% if policy(@flight).edit? %>
-      <%= link_to "Edit Flight", flight_path, class: "btn btn-primary " %>
+      <%= link_to "Edit Flight", edit_flight_path(@flight), class: "btn btn-primary " %>
       <% end %>
       <% if policy(@flight).destroy? %>
       <%= link_to "Delete Flight", flight_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
