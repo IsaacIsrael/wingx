@@ -20,6 +20,6 @@ class Flight < ApplicationRecord
   private
 
   def bought_sets
-    orders.to_a.map(&:passenger_number).inject(:+)
+    orders.to_a.map(&:passenger_number).inject(0, :+)
   end
 end
