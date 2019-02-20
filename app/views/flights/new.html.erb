@@ -1,12 +1,8 @@
-
-  <%= simple_form_for [@flight] do |f| %>
-    <%= f.label "What is the cocktail's name?" %>
-    <%= f.input :origin %>
-    <%= f.input :destiny  %>
-    <%= f.input :price %>
-    <%= f.input :date %>
-    <%= f.input :capacity %>
-    <%= f.input :description %>
-    <%= f.submit 'Create Flight', class: "btn btn-primary" %>
-  <% end %>
-
+<section>
+  <div class="container">
+    <div class="col md-6 col-md-offset-3">
+      <h3>Create a new Flight</h3>
+      <%= render 'form', flight: @flight %>
+    </div>
+  </div>
+</section>

@@ -1,12 +1,14 @@
 class FlightsController < ApplicationController
   before_action :find_flight, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:show, :index]
 
-  def display_company
-    @flights = policy_scope(Flight).where(company: current_user.company).order(created_at: :desc)
-    authorize @flights
+  def index
+    @flights = policy_scope(Flight)
   end
 
-  def show; end
+  def show
+    authorize @flight
+  end
 
   def new
     @flight = Flight.new
@@ -17,8 +19,9 @@ class FlightsController < ApplicationController
     @flight = Flight.new(flight_params)
     @flight.company = current_user.company
     authorize @flight
+
     if @flight.save
-      redirect_to root_path
+      redirect_to @flight
     else
       render :new
     end
@@ -28,12 +31,12 @@ class FlightsController < ApplicationController
 
   def update
     @flight.update(flight_params)
-    redirect_to @flight
+    redirect_to flight_path(@flight)
   end
 
   def destroy
     @flight.destroy
-    redirect_to flights_companies_path
+    redirect_to company_path(current_user.company)
   end
 
   private
@@ -44,6 +47,12 @@ class FlightsController < ApplicationController
   end
 
   def flight_params
-    params.require(:flight).permit(:origin, :destiny, :date, :capacity, :price, :description)
+    params.require(:flight).permit(:origin,
+                                   :destiny,
+                                   :date,
+                                   :capacity,
+                                   :price,
+                                   :description,
+                                   :photo)
   end
 end
