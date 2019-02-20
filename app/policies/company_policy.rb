@@ -6,16 +6,16 @@ class CompanyPolicy < ApplicationPolicy
   end
 
   def create?
-    !comapany?
+    !company?
   end
 
   def show?
-    comapany?
+    company?
   end
 
   private
 
-  def comapany?
+  def company?
     user.company
   end
 end
