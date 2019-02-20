@@ -7,17 +7,20 @@
         <h3><strong>From:</strong> <%= @flight.origin %></h3>
         <h3><strong>To:</strong> <%= @flight.destiny %></h3>
         <p>Date: <%= @flight.date %></p>
-        <p>Flight capacity: <%= @flight.capacity %> passengers.</p>
+        <p>Flight capacity: <%= @flight.available_set %> passengers.</p>
         <p><strong>R$ <%= @flight.price %></strong></p>
         <p>Informations: <br> <%= @flight.description %></p>
         <%= cl_image_tag( @flight.photo, width: 600, height: 440, crop: :fill, class: "card_image") %>
       </div>
-      <%= link_to 'Back to Flights', 'javascript:history.back()', class: "btn btn-primary" %>
+      <%= link_to 'Back to Flights', @flight.your_owner?(current_user) ? company_path : flights_path, class: "btn btn-primary" %>
       <% if policy(@flight).edit? %>
-      <%= link_to "Edit Flight", edit_flight_path(@flight), class: "btn btn-primary " %>
+        <%= link_to "Edit Flight", edit_flight_path(@flight), class: "btn btn-primary " %>
       <% end %>
       <% if policy(@flight).destroy? %>
-      <%= link_to "Delete Flight", flight_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+        <%= link_to "Delete Flight", flight_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      <% end %>
+      <% if policy(@flight.orders.build).new? %>
+        <%= link_to 'Buy', new_flight_order_path(@flight), class: "btn btn-primary" %>
       <% end %>
       </div>
     </div>
