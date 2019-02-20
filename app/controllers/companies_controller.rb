@@ -1,14 +1,16 @@
 class CompaniesController < ApplicationController
   def new
-    @companies = Company.new
+    @company = Company.new
+    authorize @company
   end
 
   def create
-    @user = User.find(params[:user_id])
     @company = Company.new(company_params)
-    @company.user = @user
+    authorize @company
+    @company.user = current_user
+
     if @company.save
-      redirect_to @company
+      redirect_to root_path
     else
       render :new
     end
@@ -32,6 +34,6 @@ class CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:name, :cnpj, :image_url, :user_id)
+    params.require(:company).permit(:name, :cnpj, :photo)
   end
 end
