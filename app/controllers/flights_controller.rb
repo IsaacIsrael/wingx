@@ -2,11 +2,14 @@ class FlightsController < ApplicationController
   before_action :find_flight, only: [:show, :edit, :update, :destroy]
 
   def display_company
-    @flights = policy_scope(Flight).where(company: current_user.company).order(created_at: :desc)
+    @flights = policy_scope(Flight).where(company: current_user.company)
+                                   .order(created_at: :desc)
     authorize @flights
   end
 
-  def show; end
+  def show
+    authorize @flight
+  end
 
   def new
     @flight = Flight.new
@@ -44,6 +47,11 @@ class FlightsController < ApplicationController
   end
 
   def flight_params
-    params.require(:flight).permit(:origin, :destiny, :date, :capacity, :price, :description)
+    params.require(:flight).permit(:origin,
+                                   :destiny,
+                                   :date,
+                                   :capacity,
+                                   :price,
+                                   :description)
   end
 end
