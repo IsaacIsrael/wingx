@@ -17,8 +17,12 @@
   </div>
 </div>
 <%= f.input :description %>
-<%= f.input :photo %>
+
+
+<%= f.input :photo, type: "file", id: "imgInp" %>
 <%= f.input :photo_cache, as: :hidden %>
+
+
 <div class="actions text-right">
   <%= f.submit class: "btn btn-primary" %>
 </div>
