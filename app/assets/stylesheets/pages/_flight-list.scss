@@ -1,0 +1,14 @@
+.flight-list{
+  .card-body h2{
+    font-weight: lighter;
+    position: absolute;
+    left: $padding;
+  }
+  .card-body h3{
+    font-size: medium;
+    font-weight: lighter;
+    position: absolute;
+    bottom: 0;
+    left: $padding;
+  }
+}
