@@ -5,7 +5,7 @@ let  price_unit = ""
 const number = (number) =>  Number.parseInt(number, 10);
 
 
-const diplayValue = (value) => {
+const display = (value) => {
   const formInputs = document.querySelector('form');
   formInputs.querySelector('#order_passenger_number').value = value
   formInputs.querySelector('input[type=submit]').value = `Pay ${price_unit} ${parseFloat(price * value).toFixed(2)}`;
@@ -34,13 +34,10 @@ const valuateOnClick = (event) => {
   const count = number(counterElement.innerText);
 
   const value = count + offset
-  // console.log(count)
-  // console.log(offset)
-  // console.log(value)
 
   if (value > 0 && value <= available_set) {
     counterElement.innerText = value;
-    diplayValue(value);
+    display(value);
   }
 }
 

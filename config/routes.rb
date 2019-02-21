@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   resources :flights do
       resources :orders, only: [:new, :create]
   end
-  get 'user/:id', to: 'users#show', as: :user
+  get 'user', to: 'users#show', as: :user
 end

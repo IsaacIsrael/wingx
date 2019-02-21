@@ -5,6 +5,3 @@ import { transparentNavbar } from "../components/navbar";
 
 transparentNavbar();
 displayValue();
-
-
-

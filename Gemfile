@@ -11,6 +11,10 @@ gem 'puma'
 gem 'rails', '5.2.2'
 gem 'redis'
 
+gem 'jquery-rails'
+gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
+gem 'sweet-alert2-rails'
+
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 5.5.0'

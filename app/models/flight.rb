@@ -1,8 +1,8 @@
 class Flight < ApplicationRecord
   belongs_to :company
-  has_many :orders
-  has_many :facilities
-  has_many :images
+  has_many :orders, dependent: :destroy
+  has_many :facilities, dependent: :destroy
+  has_many :images, dependent: :destroy
 
   mount_uploader :photo, PhotoUploader
 
@@ -15,6 +15,11 @@ class Flight < ApplicationRecord
 
   def available_set
     capacity - bought_sets
+  end
+
+  def billed
+    result = bought_sets * price
+    "#{price_unit} #{format('%.2f', result)}"
   end
 
   def price_string

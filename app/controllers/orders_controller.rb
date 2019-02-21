@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
     @order.flight = @flight
     authorize @order
     if @order.save
-      redirect_to flight_path(@flight)
+      redirect_to users_show_path
     else
       render :new
     end
