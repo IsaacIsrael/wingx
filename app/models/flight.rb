@@ -17,6 +17,11 @@ class Flight < ApplicationRecord
     capacity - bought_sets
   end
 
+  def billed
+    result = bought_sets * price
+    format('%.2f', result)
+  end
+
   def price_string
     "#{price_unit} #{format('%.2f', price)}"
   end

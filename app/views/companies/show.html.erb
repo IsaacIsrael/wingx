@@ -1,47 +1,40 @@
-<section>
+<section class="company-show">
   <div class="container">
     <h2 class="text-center  "><strong><%= @company.name %></strong> Flights</h2>
     <div class="row">
       <% @company.flights.each do |flight| %>
-      <div class="col-xs-4">
-       <div class="card">
-         <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('https://www.bjtonline.com/sites/bjtonline.com/files/styles/bjt30_article_large/public/phenom-100-1.jpg?itok=Qwrj1793&timestamp=1482934081');">
-           <% if policy(flight).destroy? %>
-            <%= link_to flight_path(flight), method: :delete, data: { confirm: "Delete this flight?", 'confirm-button-text': 'Yes',
-             'cancel-button-text': 'No',
-             'confirm-button-color': '#EE5F5B',
-             'sweet-alert-type': 'info',
-             'image-url': 'https://www.bjtonline.com/sites/bjtonline.com/files/styles/bjt30_article_large/public/phenom-100-1.jpg?itok=Qwrj1793&timestamp=1482934081' } do %>
-             <i class="fas fa-trash"></i>
-             <% end %>
-             <% end %>
-             <% if policy(flight).edit? %>
-              <%= link_to '', edit_flight_path(flight), class: 'fa fa-edit' %>
-             <% end %>
-             <h3><%= @company.name %></h3>
-             <h2><%= flight.price_string %></h2>
-             <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="avatar"/>
-           </div>
-           <div class="card-fotter">
-            <p><%= flight.route %></p>
-            <p class="info">
-              <span><%= flight.flight_date %></span>
-              <span>Seats:<%= flight.available_set%></span>
-            </p>
+        <div class="col-xs-4">
+          <div class="card">
+            <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('https://www.bjtonline.com/sites/bjtonline.com/files/styles/bjt30_article_large/public/phenom-100-1.jpg?itok=Qwrj1793&timestamp=1482934081');">
+              <div class="action">
+                <% if policy(flight).destroy? %>
+                  <%= link_to flight_path(flight), method: :delete, data: { confirm: "Delete this flight?", 'confirm-button-text': 'Yes',
+               'cancel-button-text': 'No',
+               'confirm-button-color': '#EE5F5B',
+               'sweet-alert-type': 'info',
+               'image-url': 'https://www.bjtonline.com/sites/bjtonline.com/files/styles/bjt30_article_large/public/phenom-100-1.jpg?itok=Qwrj1793&timestamp=1482934081' } do %>
+                    <i class=" delete-btn fas fa-trash"></i>
+                  <% end %>
+                <% end %>
+              </div>
+              <h2><%= flight.billed %></h2>
+            </div>
+            <div class="card-fotter">
+              <p><%= flight.route %></p>
+              <p class="info">
+                <span><%= flight.flight_date %></span>
+                <span>Seats:<%= flight.available_set%></span>
+              </p>
+            </div>
+            <% if policy(flight).edit? %>
+              <%= link_to '', edit_flight_path(flight), class: 'card-link' %>
+            <% end %>
           </div>
-          <% if policy(flight).show? %>
-            <%= link_to '', flight_path(flight), class: 'card-link' %>
-          <% end %>
         </div>
-      </div>
+      <% end %>
     </div>
+    <% if policy(Flight).new? %>
+      <%= link_to '', new_flight_path , class: " float fa fa-plus my-float" %>
+    <%end %>
   </div>
-  <% end %>
-</div>
-<div>
-  <% if policy(Flight).new? %>
-    <%= link_to 'Add Flight', new_flight_path , class: 'btn btn-primary' %>
-  <%end %>
-</div>
-</div>
 </section>
