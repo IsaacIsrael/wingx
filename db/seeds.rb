@@ -34,10 +34,10 @@ puts 'Creating 5 users with companies'
 end
 puts 'Finished'
 puts 'Creating 5 users without company'
-5.times do
+5.times do |i|
   user = User.create!(
     name: Faker::TvShows::HowIMetYourMother.character,
-    email: Faker::Internet.email,
-    password: '123456')
+    email: "teste#{i+6}@teste.com",
+    password: '123123')
 end
 puts 'Finished'
