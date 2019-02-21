@@ -1,13 +1,21 @@
 .flight-show{
-  .card-info {
-    margin-right: 8.33%;
-  }
 
-  .info-display {
-    float: right;
-  }
-
-  .card_image {
+  .card-image {
     width: 100%;
+  }
+
+  .card {
+    padding: $padding;
+    margin: -35px;
+    top: -50px;
+  }
+  .card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .price {
+    font-size: 25px;
   }
 }

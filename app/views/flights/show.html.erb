@@ -1,33 +1,52 @@
 <section class="flight-show">
-  <%= cl_image_tag( @flight.photo, width: 550, height: 400, crop: :fill, class: "card_image") %>
+  <%= cl_image_tag( @flight.photo, width: 1000, height: 350, crop: :fill, class: "card-image") %>
   <div class="container">
-    <div class="row col-md-10">
+    <div class="row col-md-8">
       <div class="col-md-10">
-      <div class="card-info col-md-offset-1">
-        <h1><strong><%= @flight.origin %></strong> to <strong><%= @flight.destiny %></strong>
-        <h2>Date: <%= @flight.date %></h2>
-        <p>Company: <%= @flight.company.name %><p>
-        <p>Seats available: <%= @flight.available_set %> seats</p>
+        <div class="card">
 
-        <div class="info-display">
-          <p>Informations: <br> <%= @flight.description %></p>
+          <div class="card-bottom">
+            <div>
+              <h2><strong><%= @flight.origin %></strong> to <strong><%= @flight.destiny %></strong></h2>
+            </div>
+            <div>
+              <%= cl_image_tag( @flight.company.photo, width: 2000, height: 2000, crop: :fill, class: "avatar") %>
+            </div>
+          </div>
+
+          <div class="card-bottom">
+            <div>
+              <h3>Date: <%= @flight.date.strftime('%d/%m/%Y') %></h3>
+            </div>
+
+            <div>
+              <h3>Company: <%= @flight.company.name %></h3>
+            </div>
+          </div>
+
+          <p>Available Seats: <%= @flight.available_set %> seats</p>
+          <p>Information: <%= @flight.description %></p>
+
+          <br>
+          <div class="card-bottom">
+            <div class="price">
+              <strong>R$ <%= @flight.price %></strong>
+            </div>
+            <div class="buttons-show">
+              <%= link_to 'Back to Flights', @flight.your_owner?(current_user) ? company_path : flights_path, class: "btn btn-primary" %>
+              <% if policy(@flight).edit? %>
+              <%= link_to "Edit Flight", edit_flight_path(@flight), class: "btn btn-primary" %>
+              <% end %>
+              <% if policy(@flight).destroy? %>
+              <%= link_to "Delete Flight", flight_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+              <% end %>
+              <% if policy(@flight.orders.build).new? %>
+              <%= link_to 'Buy', new_flight_order_path(@flight), class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+
         </div>
-        <div>
-          <p><strong>R$ <%= @flight.price %></strong></p>
-        </div>
-      <div class="buttons_show text-right col-md-10">
-        <%= link_to 'Back to Flights', @flight.your_owner?(current_user) ? company_path : flights_path, class: "btn btn-primary" %>
-        <% if policy(@flight).edit? %>
-          <%= link_to "Edit Flight", edit_flight_path(@flight), class: "btn btn-primary" %>
-        <% end %>
-        <% if policy(@flight).destroy? %>
-          <%= link_to "Delete Flight", flight_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-        <% end %>
-        <% if policy(@flight.orders.build).new? %>
-          <%= link_to 'Buy', new_flight_order_path(@flight), class: "btn btn-primary" %>
-        <% end %>
-      </div>
-      </div>
       </div>
     </div>
   </div>
