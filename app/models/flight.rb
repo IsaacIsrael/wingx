@@ -12,7 +12,7 @@ class Flight < ApplicationRecord
   validate :flight_date_cant_be_in_past
 
   def flight_date_cant_be_in_past
-    errors.add(:date, 'date can\'t be in the past') if date < Date.today
+    errors.add(:date, 'can\'t be in the past') if date < Date.today
   end
 
   def your_owner?(user)
