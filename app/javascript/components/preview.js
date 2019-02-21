@@ -4,7 +4,7 @@ function readURL(input) {
     const reader = new FileReader();
 
     reader.onload = function(e) {
-      $('#flight-image').attr('src', e.target.result);
+      $('#image').attr('src', e.target.result);
     }
 
     reader.readAsDataURL(input.files[0]);
