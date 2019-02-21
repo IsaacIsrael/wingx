@@ -15,7 +15,9 @@
           </div>
           <div>
             <% if policy(flight).destroy? %>
-            <%= link_to "", flight_path(flight), method: :delete, data: { confirm: "Are you sure?" }, class: 'fa fa-trash' %>
+              <%= link_to flight_path(flight), method: :delete, data: { confirm: "Are you sure?", 'confirm-button-text': 'Im ready' } do %>
+                <i class="fas fa-trash"></i>
+              <% end %>
             <% end %>
             <% if policy(flight).edit? %>
             <%= link_to '', edit_flight_path(flight), class: 'fa fa-edit' %>
@@ -30,7 +32,7 @@
     </div>
     <div>
       <% if policy(Flight).new? %>
-      <%= link_to 'Add Flight', new_flight_path , class: 'btn btn-primary' %>
+      <%= link_to 'Add Flight', new_flight_path , class: 'fa fa-plusbtn btn-primary' %>
       <%end %>
     </div>
   </div>

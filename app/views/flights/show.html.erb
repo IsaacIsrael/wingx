@@ -17,7 +17,7 @@
         <%= link_to "Edit Flight", edit_flight_path(@flight), class: "btn btn-primary " %>
       <% end %>
       <% if policy(@flight).destroy? %>
-        <%= link_to "Delete Flight", flight_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+        <%= link_to "Delete Flight", flight_path, method: :delete, data: { confirm: "Quer apagar mesmo?", 'confirm-button-text': 'Im ready' }, class: "btn btn-danger" %>
       <% end %>
       <% if policy(@flight.orders.build).new? %>
         <%= link_to 'Buy', new_flight_order_path(@flight), class: "btn btn-primary" %>
