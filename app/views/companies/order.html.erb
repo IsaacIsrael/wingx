@@ -1,14 +1,14 @@
 <section>
   <div class="container">
-      <h2>My company's orders</h2>
-      <% @company.orders.each do |order| %>
-    <div class="card-order">
-        <h4>From: <%= order.flight.origin %></h4>
-        <h4>To: <%= order.flight.destiny %></h4>
-        <p><strong>R$<%= order.flight.price %></strong></p>
-        <p>Capacity: <%= order.flight.capacity %></p>
-        <p>Details:<br><%= order.flight.description %></p>
-    </div>
-      <% end %>
+    <h2>My company's orders</h2>
+    <% @company.orders.each do |order| %>
+      <div class="card-order">
+          <h4>From: <%= order.flight.origin %></h4>
+          <h4>To: <%= order.flight.destiny %></h4>
+          <p><strong>R$<%= order.flight.price %></strong></p>
+          <p>Capacity: <%= order.flight.capacity %></p>
+          <p>Details:<br><%= order.flight.description %></p>
+      </div>
+    <% end %>
   </div>
 </section>
