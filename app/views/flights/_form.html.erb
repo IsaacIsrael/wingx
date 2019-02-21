@@ -1,13 +1,13 @@
 <%= simple_form_for(@flight) do |f|%>
-  <%= f.input :origin %>
-  <%= f.input :destiny %>
-  <%= f.input :date %>
-  <%= f.input :capacity %>
-  <%= f.input :price %>
-  <%= f.input :description %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-  <div class="actions text-right">
-    <%= f.submit class: "btn btn-primary" %>
-  </div>
- <% end %>
+<%= f.input :origin %>
+<%= f.input :destiny %>
+<%= f.input :date, as: :date, html5: true,  class: "input-group date" %>
+<%= f.input :capacity %>
+<%= f.input :price %>
+<%= f.input :description %>
+<%= f.input :photo %>
+<%= f.input :photo_cache, as: :hidden %>
+<div class="actions text-right">
+  <%= f.submit class: "btn btn-primary" %>
+</div>
+<% end %>
