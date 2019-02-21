@@ -18,7 +18,7 @@
       <% end%>
 
       <% if policy(User).show? %>
-      <%= link_to "My Flights", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My Flights", user_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% end%>
 
       <!-- Avatar with dropdown menu -->
