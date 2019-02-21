@@ -6,7 +6,10 @@ class FlightsController < ApplicationController
     @flights = policy_scope(Flight)
   end
 
-  def show; end
+  def show
+    @order = Order.new
+    @order.flight = @flight
+  end
 
   def new
     @flight = Flight.new

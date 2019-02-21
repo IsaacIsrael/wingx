@@ -1,12 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_flight, only: %i[new create]
-  skip_before_action :authenticate_user!, only: [:new]
-
-  def new
-    @order = Order.new
-    @order.flight = @flight
-    authorize @order
-  end
+  before_action :set_flight, only: %i[create]
 
   def create
     @order = Order.new(order_params)
