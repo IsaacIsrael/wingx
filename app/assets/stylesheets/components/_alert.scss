@@ -3,8 +3,9 @@
 * ------------------------------------- */
 
 .alert {
-  margin: 0;
-
+  position: absolute;
+  width: 100%;
+  top: 72px;
   text-align: center;
   color: white;
 }
