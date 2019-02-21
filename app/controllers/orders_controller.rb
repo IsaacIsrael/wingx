@@ -13,7 +13,6 @@ class OrdersController < ApplicationController
     @order.user = current_user
     @order.flight = @flight
     authorize @order
-
     if @order.save
       redirect_to flight_path(@flight)
     else
