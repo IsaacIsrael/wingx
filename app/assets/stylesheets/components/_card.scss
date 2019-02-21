@@ -1,39 +1,62 @@
-.card-trip {
+$card-size: 320px;
+$card-footer: 60px;
+
+.card {
+  margin: $padding;
+  box-shadow: $box-shadow;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  min-height: $card-size;
   overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
-.card-trip > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.card-trip h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-trip p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
-
-
-.card-trip .card-trip-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
   position: relative;
+  word-break: break-all;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  background-color:$white;
+}
+.card-body{
+  background-size: cover;
+  color: white;
+  position: relative;
+  flex-grow:1;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  .avatar{
+    right: $padding;
+    position: absolute;
+    bottom: (-.5*$avatar-size);
+  }
 }
 
-.card-trip-infos .card-trip-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+// Footer
+.card-fotter{
+  flex-basis: $card-footer;
+  padding: $padding;
+
+  .info{
+    font-size: medium;
+    font-weight: lighter;
+    display: flex;
+    justify-content: space-between;
+  }
 }
+
+
+// Card Link
+.card-link {
+  background: $black;
+  bottom: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition: inherit;
+  width: 100%;
+  z-index: 2;
+
+  &:hover {
+    opacity: 0.3;
+  }
+}
+
