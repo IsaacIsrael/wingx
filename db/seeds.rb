@@ -8,17 +8,18 @@
 require 'faker'
 
 puts 'Creating 5 users with companies'
-5.times do
+5.times do |i|
   puts "Create User"
   user = User.create!(
     name: Faker::TvShows::HowIMetYourMother.character,
-    email: Faker::Internet.email,
-    password: '123456')
+    email: "teste#{i+1}@teste.com",
+    password: '123123')
   puts "Create company"
   company = Company.create!(
     name: Faker::Company.name,
     cnpj: Faker::Number.number(14),
-    user: user)
+    user: user,
+    remote_photo_url: "https://source.unsplash.com/1600x900/?company,startup,enterprise")
   puts "Create flight"
   3.times do Flight.create!(
     origin: Faker::Nation.capital_city,
@@ -27,7 +28,8 @@ puts 'Creating 5 users with companies'
     capacity: 10,
     price: 1500,
     company: company,
-    description: Faker::Hacker.say_something_smart)
+    description: Faker::Hacker.say_something_smart,
+    remote_photo_url: "https://source.unsplash.com/1600x900/?airplane,flights,travel")
   end
 end
 puts 'Finished'

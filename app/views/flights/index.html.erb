@@ -5,10 +5,10 @@
       <% @flights.each do |flight| %>
         <div class="col-xs-4">
            <div class="card">
-             <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('https://www.bjtonline.com/sites/bjtonline.com/files/styles/bjt30_article_large/public/phenom-100-1.jpg?itok=Qwrj1793&timestamp=1482934081');">
+             <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= image_path(flight.photo) %>');">
                 <h3><%= flight.company.name %></h3>
                 <h2><%= flight.price_string %></h2>
-                <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="avatar"/>
+                <%= cl_image_tag(flight.company.photo, class: 'avatar') %>
               </div>
               <div class="card-fotter">
                 <p><%= flight.route %></p>
