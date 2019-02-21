@@ -15,7 +15,11 @@
           </div>
           <div>
             <% if policy(flight).destroy? %>
-              <%= link_to flight_path(flight), method: :delete, data: { confirm: "Are you sure?", 'confirm-button-text': 'Im ready' } do %>
+              <%= link_to flight_path(flight), method: :delete, data: { confirm: "Delete this flight?", 'confirm-button-text': 'Yes',
+                 'cancel-button-text': 'No',
+                 'confirm-button-color': '#EE5F5B',
+                 'sweet-alert-type': 'info',
+                 'image-url': 'https://www.bjtonline.com/sites/bjtonline.com/files/styles/bjt30_article_large/public/phenom-100-1.jpg?itok=Qwrj1793&timestamp=1482934081' } do %>
                 <i class="fas fa-trash"></i>
               <% end %>
             <% end %>
@@ -32,7 +36,7 @@
     </div>
     <div>
       <% if policy(Flight).new? %>
-      <%= link_to 'Add Flight', new_flight_path , class: 'fa fa-plusbtn btn-primary' %>
+      <%= link_to 'Add Flight', new_flight_path , class: 'btn btn-primary' %>
       <%end %>
     </div>
   </div>
