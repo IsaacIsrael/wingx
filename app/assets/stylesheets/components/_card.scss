@@ -22,7 +22,6 @@
   margin: 0;
 }
 
-
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
@@ -36,4 +35,16 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.card-info {
+  margin-right: 8.33%;
+}
+
+.info-display {
+  float: right;
+}
+
+.card_image {
+  width: 100%;
 }
