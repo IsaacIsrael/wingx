@@ -9,6 +9,12 @@ class Flight < ApplicationRecord
   validates :destiny, :description, :origin, presence: true
   validates :date, :capacity, :price, presence: true
 
+  validate :flight_date_cant_be_in_past
+
+  def flight_date_cant_be_in_past
+    errors.add(:date, 'date can\'t be in the past') if date < Date.today
+  end
+
   def your_owner?(user)
     company.user == user
   end

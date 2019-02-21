@@ -17,10 +17,10 @@ class FlightsController < ApplicationController
     @flight = Flight.new(flight_params)
     @flight.company = current_user.company
     authorize @flight
-    if @flight.save && Date.today < @flight.date
+    if @flight.save
       redirect_to @flight
     else
-      redirect_to new_flight_path
+      render :new
     end
   end
 
