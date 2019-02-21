@@ -1,7 +1,39 @@
+$button-size: 40px;
+
 .buttons_show {
   padding: $padding 0;
   // justify-content: flex-end;
   // display: flex;
 }
 
+.btn-round {
+  border: $border;
+  border-radius: 50%;
+  width: $button-size;
+  color: $grey;
+  height: $button-size;
+}
 
+ .btn-float{
+  display: flex;
+  position:fixed;
+  width:$button-size * 2;
+  height:$button-size * 2;
+  background-color:$green;
+  color:$white;
+  border-radius:50%;
+  text-align:center;
+  box-shadow: $box-shadow;
+  justify-content: center;
+  align-items: center;
+  font-size: $font-size * 3;
+  z-index: 30;
+  opacity: 0.7;
+  transition: all 0.2s ease-in;
+}
+
+ .btn-float:hover{
+  text-decoration: none;
+  opacity:1;
+  color: $white;
+}

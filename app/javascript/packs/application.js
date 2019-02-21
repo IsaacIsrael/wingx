@@ -1,7 +1,7 @@
 import "bootstrap";
 
-import { displayValue } from '../components/init_order_component'
-import { transparentNavbar } from "../components/navbar";
+import { initDisplayValue } from '../components/init_order_component'
+import { initTransparentNavbar } from "../components/init_navbar";
 
-transparentNavbar();
-displayValue();
+initTransparentNavbar();
+initDisplayValue();

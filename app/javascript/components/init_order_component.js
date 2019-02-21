@@ -48,7 +48,7 @@ const setValues = ()=>{
     price_unit = element.dataset.priceUnit;
 };
 
-const displayValue = (value) =>{
+const initDisplayValue = (value) =>{
 
   const elements = document.querySelectorAll('#order #actions a')
 
@@ -59,4 +59,4 @@ const displayValue = (value) =>{
 
 };
 
-export { displayValue }
+export { initDisplayValue }
