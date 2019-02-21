@@ -5,14 +5,14 @@
       <% @company.flights.each do |flight| %>
         <div class="col-xs-4">
           <div class="card">
-            <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('https://www.bjtonline.com/sites/bjtonline.com/files/styles/bjt30_article_large/public/phenom-100-1.jpg?itok=Qwrj1793&timestamp=1482934081');">
+            <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= image_path(flight.photo) %>');">
               <div class="action">
                 <% if policy(flight).destroy? %>
                   <%= link_to flight_path(flight), method: :delete, data: { confirm: "Delete this flight?", 'confirm-button-text': 'Yes',
                'cancel-button-text': 'No',
                'confirm-button-color': '#EE5F5B',
                'sweet-alert-type': 'info',
-               'image-url': 'https://www.bjtonline.com/sites/bjtonline.com/files/styles/bjt30_article_large/public/phenom-100-1.jpg?itok=Qwrj1793&timestamp=1482934081' } do %>
+               'image-url': image_path(flight.photo) } do %>
                     <i class=" delete-btn fas fa-trash"></i>
                   <% end %>
                 <% end %>
