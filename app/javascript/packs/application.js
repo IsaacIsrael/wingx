@@ -1,2 +1,5 @@
 import "bootstrap";
-// javascript code goes here
+import { transparentNavbar } from "../components/navbar";
+
+transparentNavbar();
+
