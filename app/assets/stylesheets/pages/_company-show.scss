@@ -24,29 +24,9 @@
   .delete-btn {
     color: $red;
   }
-  .float{
-  display: flex;
-  position:fixed;
-  width:80px;
-  height:80px;
-  bottom:40px;
-  right:40px;
-  background-color:#32B796;
-  color:#FFF;
-  border-radius:50px;
-  text-align:center;
-  box-shadow: $box-shadow;
-  justify-content: center;
-  align-items: center;
-  font-size: $font-size * 3;
-  z-index: 30;
-  }
-  .float:hover{
-    text-decoration: none;
-    background-color: rgba(50, 183, 150, .85);
-  }
 
-  .my-float{
-    margin-top:22px;
+  .btn-float{
+    bottom:40px;
+    right:40px;
   }
 }
