@@ -1,8 +1,10 @@
- <div class="form-container">
+ <div class="card form-container">
     <div class="header">
       <div class="header-row">
-        <div class="big-bold" id="price" data-amount-cents="15000"><%= flight.price_string %></div>
-        <div class="small-light"> / PARTICIPANT</div>
+        <div class="big-bold" id="price" data-amount-cents="15000">
+          <%= flight.price_string %>
+        </div>
+        <div class="small-light"> / Seats</div>
       </div>
     </div>
 
@@ -16,8 +18,8 @@
     </div>
 
    <%= simple_form_for [@flight, @order] do |f| %>
-      <%= f.input :passenger_number %>
-      <%= f.button :submit %>
+      <%= f.input :passenger_number, label: false, as: :hidden  %>
+      <%= f.button :submit, class: 'submitbtn-primary' %>
     <% end %>
 </div>
 
