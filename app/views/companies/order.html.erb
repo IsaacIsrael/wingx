@@ -1,14 +1,14 @@
-<section>
+<section class="company-order">
   <div class="container">
       <h2>My company's orders</h2>
+      <div class="row">
       <% @company.orders.each do |order| %>
-    <div class="card-order">
-        <h4>From: <%= order.flight.origin %></h4>
-        <h4>To: <%= order.flight.destiny %></h4>
-        <p><strong>R$<%= order.flight.price %></strong></p>
-        <p>Capacity: <%= order.flight.capacity %></p>
-        <p>Details:<br><%= order.flight.description %></p>
+    <div class="card col-xs-3">
+        <h4>Client: <%= order.user.name %></h4>
+        <p>Seats bought: <%= order.passenger_number %></p>
+        <h4><strong>TOTAL: <%= order.flight.billed %></strong></h4>
     </div>
       <% end %>
+      </div>
   </div>
 </section>

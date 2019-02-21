@@ -23,7 +23,7 @@
               <p><%= flight.route %></p>
               <p class="info">
                 <span><%= flight.flight_date %></span>
-                <span>Available Seats: <%= flight.available_set%>/<%= flight.capacity %> </span>
+                <span>Available Seats: <%= flight.available_seat%>/<%= flight.capacity %> </span>
               </p>
             </div>
             <% if policy(flight).edit? %>
