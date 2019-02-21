@@ -17,6 +17,22 @@ class Flight < ApplicationRecord
     capacity - bought_sets
   end
 
+  def price_string
+    "#{price_unit} #{format('%.2f', price)}"
+  end
+
+  def price_unit
+    "R$"
+  end
+
+  def flight_date
+    date.strftime("%d/%m/%Y")
+  end
+
+  def route
+    "#{origin} - #{destiny}"
+  end
+
   private
 
   def bought_sets
