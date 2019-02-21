@@ -19,7 +19,7 @@ class Flight < ApplicationRecord
 
   def billed
     result = bought_sets * price
-    format('%.2f', result)
+    "#{price_unit} #{format('%.2f', result)}"
   end
 
   def price_string
