@@ -24,7 +24,7 @@
     </div>
     <div>
       <%# image_tag('placeholder', class: "imagepreview", id: "image") %>
-      <%= cl_image_tag( @flight.photo, :default_image => "placeholder.png"  ,crop: :fill,class: "imagepreview", id: "image") %>
+      <%= cl_image_tag( @flight.photo_url || "non_existing_id.png", :default_image => "placeholder.png"  ,crop: :fill,class: "imagepreview", id: "image") %>
     </div>
   </div>
   <div class="actions text-right">
