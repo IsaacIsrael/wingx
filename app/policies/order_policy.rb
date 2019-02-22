@@ -5,6 +5,10 @@ class OrderPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    user.orders.none? { |item| item.flight == record.flight }
+  end
+
   def create?
     user?
   end

@@ -5,6 +5,7 @@
       <div class="card-fotter">
         <h4>No upcoming flights</h4>
         <h4 >Start exploring flights for your next trip!</h4>
+         alt="">
       </div>
     <% else %>
       <div class="row">
@@ -19,9 +20,12 @@
                   <p><%= order.flight.flight_date %></p>
                   <p class="info">
                     <span><%= order.flight.description %></span>
-                    <span>Seats: <%= order.flight.bought_sets%></span>
+                    <span>Seats: <%= order.passenger_number%></span>
                   </p>
                 </div>
+                 <% if policy(order.flight).show? %>
+                  <%= link_to '', flight_path(order.flight), class: 'card-link' %>
+                 <% end %>
               </div>
           </div>
         <% end %>
