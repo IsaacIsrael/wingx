@@ -1,0 +1,11 @@
+form{
+  .actions{
+    padding: $padding;
+  }
+  .imagepreview {
+    object-fit: cover;
+    width:100%;
+    border-radius: 10px;
+    height:$img-height;
+  }
+}

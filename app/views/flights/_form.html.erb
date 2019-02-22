@@ -1,12 +1,31 @@
 <%= simple_form_for(@flight) do |f|%>
-  <%= f.input :origin %>
-  <%= f.input :destiny %>
-  <%= f.input :date %>
-  <%= f.input :capacity %>
-  <%= f.input :price %>
-  <%= f.input :description %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
+  <div class="two-columns">
+    <div>
+      <div class="row">
+        <div class="col-xs-6">
+          <%= f.input :origin %>
+        </div>
+        <div class="col-xs-6">
+          <%= f.input :destiny %>
+        </div>
+      </div>
+      <%= f.input :date, as: :date, html5: true,  class: "input-group date" %>
+      <div class="row">
+        <div class="col-xs-6">
+          <%= f.input :capacity %>
+        </div>
+        <div class="col-xs-6">
+          <%= f.input :price %>
+        </div>
+      </div>
+      <%= f.input :description %>
+    </div>
+    <div>
+      <%= f.input :photo, type: "file", id: "imgInp" %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= cl_image_tag( @flight.photo_url || "non_existing_id.png", :default_image => "placeholder.png"  ,crop: :fill,class: "imagepreview", id: "image") %>
+    </div>
+  </div>
   <div class="actions text-right">
     <%= f.submit class: "btn btn-primary" %>
   </div>

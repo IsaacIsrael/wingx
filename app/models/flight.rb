@@ -7,7 +7,15 @@ class Flight < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   validates :destiny, :description, :origin, presence: true
-  validates :date, :capacity, :price, presence: true
+  validates :date, presence: true
+  validates :price, numericality: { greater_than_or_equal_to: 1, only_integer: true }
+  validates :capacity, numericality: { greater_than_or_equal_to: 1, only_integer: true }
+
+  validate :flight_date_cant_be_in_past
+
+  def flight_date_cant_be_in_past
+    errors.add(:date, 'can\'t be in the past') if date < Date.today
+  end
 
   def your_owner?(user)
     company.user == user
@@ -37,8 +45,6 @@ class Flight < ApplicationRecord
   def route
     "#{origin} - #{destiny}"
   end
-
-  private
 
   def bought_sets
     orders.to_a.map(&:passenger_number).inject(0, :+)
