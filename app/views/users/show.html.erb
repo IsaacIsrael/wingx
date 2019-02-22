@@ -23,9 +23,6 @@
                     <span>Seats: <%= order.passenger_number%></span>
                   </p>
                 </div>
-                 <% if policy(order.flight).show? %>
-                  <%= link_to '', flight_path(order.flight), class: 'card-link' %>
-                 <% end %>
               </div>
           </div>
         <% end %>
