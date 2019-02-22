@@ -1,0 +1,5 @@
+swal("You deleted this flight", '', "success");
+document.querySelector("[data-flight-id='<%= @flight.id %>']").remove();
+console.log('Teste antes');
+
+console.log('Teste depois');

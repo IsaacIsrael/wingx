@@ -21,7 +21,7 @@ class FlightsController < ApplicationController
     @flight.company = current_user.company
     authorize @flight
     if @flight.save
-      redirect_to @flight
+      redirect_to company_path
     else
       render :new
     end
@@ -31,7 +31,7 @@ class FlightsController < ApplicationController
 
   def update
     if @flight.update(flight_params)
-      redirect_to flight_path(@flight)
+      redirect_to company_path
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class FlightsController < ApplicationController
 
   def destroy
     @flight.destroy
-    redirect_to company_path(current_user.company)
+    # redirect_to company_path(current_user.company)
   end
 
   private
