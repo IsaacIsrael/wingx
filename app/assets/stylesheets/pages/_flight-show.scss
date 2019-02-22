@@ -2,6 +2,8 @@
 
   .card-image {
     width: 100%;
+    height: $img-height;
+    object-fit: cover;
   }
 
   .card {

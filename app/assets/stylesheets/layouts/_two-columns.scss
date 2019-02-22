@@ -1,0 +1,9 @@
+.two-columns {
+  display: flex;
+  flex-direction: row;
+
+  & > *{
+    flex:1 0 50%;
+    padding: $padding;
+  }
+}
