@@ -9,10 +9,8 @@
               <div class="action">
                 <% if policy(flight).destroy? %>
                   <%= link_to flight_path(flight), method: :delete, data: { confirm: "Delete this flight?", 'confirm-button-text': 'Yes',
-               'cancel-button-text': 'No',
-               'confirm-button-color': '#EE5F5B',
-               'sweet-alert-type': 'info',
-               'image-url': image_path(flight.photo) } do %>
+                      'cancel-button-text': 'No', 'confirm-button-color': '#EE5F5B', 'sweet-alert-type': 'info',
+                      'image-url': image_path(flight.photo) } do %>
                     <i class=" delete-btn fas fa-trash"></i>
                   <% end %>
                 <% end %>
@@ -34,7 +32,7 @@
       <% end %>
     </div>
     <% if policy(Flight).new? %>
-      <%= link_to '', new_flight_path , class: " float fa fa-plus my-float" %>
+      <%= link_to '', new_flight_path , class: "btn-float fa fa-plus" %>
     <%end %>
   </div>
 </section>
