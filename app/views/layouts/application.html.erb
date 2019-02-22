@@ -18,7 +18,9 @@
     <script>
       if(window.location.pathname == '/') {
         const logo = document.getElementById("logo");
-        logo.src=  '<%= j image_path "logo-white.png" %>';
+        logo.src=  '<%= j image_path "logo-white.png" %>'
+        const navbar = document.getElementById("navbar");
+        navbar.classList.toggle("navbar-wagon-transparent");;
       }
     </script>
   </body>
