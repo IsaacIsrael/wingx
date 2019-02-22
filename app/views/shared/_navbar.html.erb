@@ -1,6 +1,6 @@
 <div id="navbar" class="navbar-wagon navbar-fixed-top">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
+  <%= link_to flights_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png", height: 50 %>
   <% end %>
 
@@ -18,7 +18,7 @@
       <% end%>
 
       <% if policy(User).show? %>
-      <%= link_to "My Flights", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My Flights", user_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% end%>
 
       <!-- Avatar with dropdown menu -->

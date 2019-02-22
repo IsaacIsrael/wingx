@@ -7,27 +7,27 @@
           <div class="card-body">
             <div>
               <h2><%= @flight.route %></h2>
-               <%= cl_image_tag( @flight.company.photo, width: 2000, height: 2000, crop: :fill, class: "avatar") %>
+              <%= cl_image_tag( @flight.company.photo, width: 2000, height: 2000, crop: :fill, class: "avatar") %>
             </div>
             <div>
-               <h4>Date: <%= @flight.flight_date %></h4>
-               <h4>Company: <%= @flight.company.name %></h4>
-            </div>
-          </div>
-          <div class="card-fotter">
-            <strong>Information:</strong>
-            <p><%= @flight.description %></p>
-            <div class="actions text-right">
-              <div class="buttons-show">
-                <%= link_to 'Back to Flights', @flight.your_owner?(current_user) ? company_path : flights_path, class: "btn btn-primary" %>
-              </div>
+             <h4>Date: <%= @flight.flight_date %></h4>
+             <h4>Company: <%= @flight.company.name %></h4>
+           </div>
+         </div>
+         <div class="card-fotter">
+          <strong>Information:</strong>
+          <p><%= @flight.description %></p>
+          <div class="actions text-right">
+            <div class="buttons-show">
+              <%= link_to 'Back to Flights', @flight.your_owner?(current_user) ? company_path : flights_path, class: "btn btn-primary" %>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <%= render  '/orders/new', flight: @flight, order: @order %>
-      </div>
+    </div>
+    <div class="col-md-4">
+      <%= render  '/orders/new', flight: @flight, order: @order %>
     </div>
   </div>
+</div>
 </section>

@@ -38,8 +38,6 @@ class Flight < ApplicationRecord
     "#{origin} - #{destiny}"
   end
 
-  private
-
   def bought_sets
     orders.to_a.map(&:passenger_number).inject(0, :+)
   end
