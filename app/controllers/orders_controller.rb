@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
       respond_to do |format|
         format.html { render :new }
         format.js # <-- idem
+
       end
     end
   end
