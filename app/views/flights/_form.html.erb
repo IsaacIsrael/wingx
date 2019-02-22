@@ -19,11 +19,10 @@
         </div>
       </div>
       <%= f.input :description %>
-      <%= f.input :photo, type: "file", id: "imgInp" %>
-      <%= f.input :photo_cache, as: :hidden %>
     </div>
     <div>
-      <%# image_tag('placeholder', class: "imagepreview", id: "image") %>
+      <%= f.input :photo, type: "file", id: "imgInp" %>
+      <%= f.input :photo_cache, as: :hidden %>
       <%= cl_image_tag( @flight.photo_url || "non_existing_id.png", :default_image => "placeholder.png"  ,crop: :fill,class: "imagepreview", id: "image") %>
     </div>
   </div>
