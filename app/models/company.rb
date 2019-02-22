@@ -15,4 +15,8 @@ class Company < ApplicationRecord
 \z/,
                      message: "Invalid"
                    }
+
+  def flight_by_orders_count
+    flights.sort_by { |flight| flight.orders.count }.reverse
+  end
 end
