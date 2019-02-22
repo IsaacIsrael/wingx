@@ -40,7 +40,7 @@ class FlightsController < ApplicationController
 
   def destroy
     @flight.destroy
-    redirect_to company_path(current_user.company)
+    # redirect_to company_path(current_user.company)
   end
 
   private

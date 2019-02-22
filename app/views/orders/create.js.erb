@@ -1,0 +1,11 @@
+<% if @order.errors.any? %>
+  refreshForm('<%= j render "orders/new", restaurant: @restaurant, review: @review %>');
+<% else %>
+   swal({
+            title: "Wow!",
+            text: "Your tickt is buyed with success!",
+            type: "success"
+        }).then(function() {
+           window.location.replace('<%= users_show_path%>');
+        });
+<% end %>
