@@ -1,7 +1,7 @@
 class FlightPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      user ? scope.where.not(company: user.company) : scope.all
+      user ? scope.where.not(company: user.company).order(:date) : scope.order(:date)
     end
   end
 

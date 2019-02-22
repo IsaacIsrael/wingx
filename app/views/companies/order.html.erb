@@ -2,7 +2,7 @@
   <div class="container">
     <h2 class="text-center"> <strong><%= @company.name %></strong> orders</h2>
     <ul class="list">
-    <% @company.flights.each do |flight| %>
+    <% @company.flight_by_orders_count.each do |flight| %>
       <li>
         <div class="list-header">
           <h3>Flight: <span class="important-text"><%= flight.route %></span></h3>
