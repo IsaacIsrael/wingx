@@ -21,12 +21,12 @@ class Flight < ApplicationRecord
     company.user == user
   end
 
-  def available_set
-    capacity - bought_sets
+  def available_seat
+    capacity - bought_seats
   end
 
   def billed
-    result = bought_sets * price
+    result = bought_seats * price
     "#{price_unit} #{format('%.2f', result)}"
   end
 
@@ -46,7 +46,7 @@ class Flight < ApplicationRecord
     "#{origin} - #{destiny}"
   end
 
-  def bought_sets
+  def bought_seats
     orders.to_a.map(&:passenger_number).inject(0, :+)
   end
 end

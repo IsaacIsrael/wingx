@@ -1,0 +1,21 @@
+.list{
+  list-style-type: none;
+  padding: 0;
+
+  li{
+    border-bottom: $border;
+    display: flex;
+    justify-content: space-between;
+    padding:$padding;
+  }
+  li:last-child{
+    border-bottom: none;
+  }
+  .list-header {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.list-body{
+  flex-grow: 1;
+}

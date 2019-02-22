@@ -1,0 +1,30 @@
+.empty-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  & > *{
+    width: 50%;
+  }
+
+  .message{
+    font-size: larger;
+    font-weight: 300;
+    &>*{
+      font-size: inherit;
+      font-weight: inherit;
+    }
+    span{
+      display:block;
+    }
+    small{
+      padding-top: $padding;
+      display:block;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+}
