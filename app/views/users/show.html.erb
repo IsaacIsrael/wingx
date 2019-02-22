@@ -2,10 +2,16 @@
   <div class="container">
     <h1 class="text-center">My Flights</h1>
     <% if @user.orders.empty?%>
-      <div class="empty-search">
-        <h4>No upcoming flights</h4>
-        <h4 >Start exploring flights for your next trip!</h4>
-        <%= image_tag("empty-search.svg") %>
+      <div class="empty-img">
+        <div>
+          <div class="message text-center">
+            <h4>
+              <span>No upcoming flights</span>
+              <small>Start exploring flights for your next trip!</small>
+            </h4>
+          </div>
+          <%= image_tag("empty-search.svg") %>
+        </div>
       </div>
     <% else %>
       <div class="row">

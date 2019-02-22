@@ -1,14 +1,39 @@
-<section>
+<section class="company-order">
   <div class="container">
-    <h2>My company's orders</h2>
-    <% @company.orders.each do |order| %>
-      <div class="card-order">
-          <h4>From: <%= order.flight.origin %></h4>
-          <h4>To: <%= order.flight.destiny %></h4>
-          <p><strong>R$<%= order.flight.price %></strong></p>
-          <p>Capacity: <%= order.flight.capacity %></p>
-          <p>Details:<br><%= order.flight.description %></p>
-      </div>
+    <h2 class="text-center"> <strong><%= @company.name %></strong> orders</h2>
+    <ul class="list">
+    <% @company.flights.each do |flight| %>
+      <li>
+        <div class="list-header">
+          <h3>Flight: <span class="important-text"><%= flight.route %></span></h3>
+          <h3>Revenue: <span class="important-text"><%= flight.billed %></span></h3>
+        </div>
+        <% if flight.orders.empty? %>
+          <div class="empty-img">
+            <div>
+               <h4 class="message text-center">You don't have any orders yet! :(</h4>
+                <%= image_tag("empty-order.svg") %>
+            </div>
+          </div>
+        <% else %>
+       <div class="row">
+          <% flight.orders.each do |order| %>
+            <div class=" col-xs-3 ">
+              <div class="card company-flights">
+                <% if flight.id == order.flight_id %>
+                  <div class="flight-orders">
+                    <h4>Client: <%= order.user.name %></h4>
+                    <p>Seats bought: <%= order.passenger_number %></p>
+                    <h4>R$ <%= order.flight.price * order.passenger_number %></h4>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <% end %>
+        </li>
     <% end %>
+    </ul>
   </div>
 </section>

@@ -1,4 +1,4 @@
-let available_set = 0;
+let available_seat = 0;
 let price = 0
 let  price_unit = ""
 
@@ -20,7 +20,7 @@ const display = (value) => {
 
   const plus = document.querySelector('#actions a.plus');
 
-  if (value < available_set) {
+  if (value < available_seat) {
     plus.removeAttribute('disabled');
   } else {
     plus.setAttribute("disabled", "disabled");
@@ -35,7 +35,7 @@ const valuateOnClick = (event) => {
 
   const value = count + offset
 
-  if (value > 0 && value <= available_set) {
+  if (value > 0 && value <= available_seat) {
     counterElement.innerText = value;
     display(value);
   }
@@ -43,7 +43,7 @@ const valuateOnClick = (event) => {
 
 const setValues = ()=>{
    const element = document.getElementById('price')
-    available_set =  number(document.getElementById('available_set').innerText);
+    available_seat =  number(document.getElementById('available_seat').innerText);
     price = number(element.dataset.amountCents);
     price_unit = element.dataset.priceUnit;
 };
