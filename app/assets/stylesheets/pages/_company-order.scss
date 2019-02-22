@@ -1,5 +1,33 @@
 .company-order {
+  .company-flights {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .flight-orders {
+    padding: $padding;
+  }
   .card {
-    min-height: ($card-size / 2)
+    min-height: $navbar-size;
+    cursor: pointer;
+  }
+  .card:hover {
+    transform: translateY(-8px);
+  }
+  .list li {
+    flex-direction: column;
+  }
+  .important-text {
+    font-weight: 300;
+  }
+  h3 {
+    font-size: ($font-size * 1.5);
+  }
+  h4 {
+    font-size: $font-size;
+  }
+  p {
+    font-size: ($font-size * 0.85);
   }
 }

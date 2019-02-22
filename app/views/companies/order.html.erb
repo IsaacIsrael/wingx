@@ -1,14 +1,30 @@
 <section class="company-order">
   <div class="container">
-      <h2>My company's orders</h2>
-      <div class="row">
-      <% @company.orders.each do |order| %>
-    <div class="card col-xs-3">
-        <h4>Client: <%= order.user.name %></h4>
-        <p>Seats bought: <%= order.passenger_number %></p>
-        <h4><strong>TOTAL: <%= order.flight.billed %></strong></h4>
-    </div>
-      <% end %>
-      </div>
+    <h2 class="text-center"> <strong><%= @company.name %></strong> orders</h2>
+    <ul class="list">
+    <% @company.flights.each do |flight| %>
+      <li>
+        <div class="list-header">
+          <h3>Flight: <span class="important-text"><%= flight.route %></span></h3>
+          <h3>Revenue: <span class="important-text"><%= flight.billed %></span></h3>
+        </div>
+       <div class="row">
+          <% flight.orders.each do |order| %>
+            <div class=" col-xs-3 ">
+              <div class="card company-flights">
+                <% if flight.id == order.flight_id %>
+                  <div class="flight-orders">
+                    <h4>Client: <%= order.user.name %></h4>
+                    <p>Seats bought: <%= order.passenger_number %></p>
+                    <h4>R$ <%= order.flight.price * order.passenger_number %></h4>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        </li>
+    <% end %>
+    </ul>
   </div>
 </section>
