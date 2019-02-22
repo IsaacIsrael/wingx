@@ -1,14 +1,8 @@
 <section class="flight-new">
   <div class="container">
-    <div class="card two-columns">
-      <div>
-        <h3>Create a new Flight</h3>
-        <%= render 'form', flight: @flight %>
-      </div>
-      <div>
-        <%= image_tag('placeholder', class: "imagepreview", id: "image") %>
-        <!-- <img id="image" src="#" alt="Your Flight Image" class="imagepreview" /> -->
-      </div>
+    <div class="card">
+      <h3 class="text-center">Create a new Flight</h3>
+      <%= render 'form', flight: @flight %>
     </div>
   </div>
 </section>

@@ -1,15 +1,9 @@
 .flight-new {
-  .card.two-columns{
-    flex-direction: row;
+  .two-columns{
     box-sizing: border-box;
     align-items: center;
   }
- .imagepreview {
-    object-fit: cover;
-    width:100%;
-    border-radius: 10px;
-    height:350px;
-  }
+
 
 
 }

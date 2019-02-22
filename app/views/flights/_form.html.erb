@@ -1,29 +1,33 @@
 <%= simple_form_for(@flight) do |f|%>
-<div class="row">
-  <div class="col-xs-6">
-    <%= f.input :origin %>
+  <div class="two-columns">
+    <div>
+      <div class="row">
+        <div class="col-xs-6">
+          <%= f.input :origin %>
+        </div>
+        <div class="col-xs-6">
+          <%= f.input :destiny %>
+        </div>
+      </div>
+      <%= f.input :date, as: :date, html5: true,  class: "input-group date" %>
+      <div class="row">
+        <div class="col-xs-6">
+          <%= f.input :capacity %>
+        </div>
+        <div class="col-xs-6">
+          <%= f.input :price %>
+        </div>
+      </div>
+      <%= f.input :description %>
+      <%= f.input :photo, type: "file", id: "imgInp" %>
+      <%= f.input :photo_cache, as: :hidden %>
+    </div>
+    <div>
+      <%# image_tag('placeholder', class: "imagepreview", id: "image") %>
+      <%= cl_image_tag( @flight.photo, :default_image => "placeholder.png"  ,crop: :fill,class: "imagepreview", id: "image") %>
+    </div>
   </div>
-  <div class="col-xs-6">
-    <%= f.input :destiny %>
+  <div class="actions text-right">
+    <%= f.submit class: "btn btn-primary" %>
   </div>
-</div>
-<%= f.input :date, as: :date, html5: true,  class: "input-group date" %>
-<div class="row">
-  <div class="col-xs-6">
-    <%= f.input :capacity %>
-  </div>
-  <div class="col-xs-6">
-    <%= f.input :price %>
-  </div>
-</div>
-<%= f.input :description %>
-
-
-<%= f.input :photo, type: "file", id: "imgInp" %>
-<%= f.input :photo_cache, as: :hidden %>
-
-
-<div class="actions text-right">
-  <%= f.submit class: "btn btn-primary" %>
-</div>
-<% end %>
+ <% end %>
