@@ -30,4 +30,12 @@
   p {
     font-size: ($font-size * 0.85);
   }
+  .empty-img {
+    & > * {
+      width: 25%;
+    }
+    .message {
+      white-space: nowrap;
+    }
+  }
 }

@@ -8,6 +8,14 @@
           <h3>Flight: <span class="important-text"><%= flight.route %></span></h3>
           <h3>Revenue: <span class="important-text"><%= flight.billed %></span></h3>
         </div>
+        <% if flight.orders.empty? %>
+          <div class="empty-img">
+            <div>
+               <h4 class="message text-center">You don't have any orders yet! :(</h4>
+                <%= image_tag("empty-order.svg") %>
+            </div>
+          </div>
+        <% else %>
        <div class="row">
           <% flight.orders.each do |order| %>
             <div class=" col-xs-3 ">
@@ -23,6 +31,7 @@
             </div>
           <% end %>
         </div>
+        <% end %>
         </li>
     <% end %>
     </ul>
