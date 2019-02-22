@@ -20,7 +20,6 @@ class FlightsController < ApplicationController
     @flight = Flight.new(flight_params)
     @flight.company = current_user.company
     authorize @flight
-
     if @flight.save
       redirect_to @flight
     else
@@ -52,6 +51,6 @@ class FlightsController < ApplicationController
 
   def flight_params
     params.require(:flight).permit(:origin, :destiny, :date, :capacity, :price,
-                                   :description, :photo)
+     :description, :photo)
   end
 end
