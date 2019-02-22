@@ -78,7 +78,7 @@ $navbar-item: 56px;
 }
 .navbar-wagon-dropdown-menu li > a {
   color: $gray !important;
-  font-size: 15px !important;
+  font-size: $font-size !important;
   font-weight: lighter !important;
   line-height: ($navbar-item / 2) !important;
   padding: ($padding / 2) $padding;

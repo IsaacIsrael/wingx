@@ -1,10 +1,32 @@
-<h1>My Flights</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
-<ul>
-  <% @user.orders.each do |order| %>
-    <li>
-      <%= order.flight.origin %>
-    </li>
-  <% end %>
-</ul>
+<section class="flight-list">
+  <div class="container">
+    <h1 class="text-center">My Flights</h1>
+    <% if @user.orders.empty?%>
+      <div class="empty-search">
+        <h4>No upcoming flights</h4>
+        <h4 >Start exploring flights for your next trip!</h4>
+        <%= image_tag("empty-search.svg") %>
+      </div>
+    <% else %>
+      <div class="row">
+        <% @user.orders.each do |order| %>
+          <div class="col-xs-12">
+             <div class="card">
+               <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= image_path(order.flight.photo) %>');">
+                  <h2><%= order.flight.route %></h2>
+                  <h3><%= order.flight.company.name %></h3>
+                </div>
+                <div class="card-fotter">
+                  <p><%= order.flight.flight_date %></p>
+                  <p class="info">
+                    <span><%= order.flight.description %></span>
+                    <span>Seats: <%= order.passenger_number%></span>
+                  </p>
+                </div>
+              </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</section>

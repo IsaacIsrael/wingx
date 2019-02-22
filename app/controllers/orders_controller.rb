@@ -1,21 +1,13 @@
 class OrdersController < ApplicationController
-  before_action :set_flight, only: %i[new create]
-  skip_before_action :authenticate_user!, only: [:new]
-
-  def new
-    @order = Order.new
-    @order.flight = @flight
-    authorize @order
-  end
+  before_action :set_flight, only: %i[create]
 
   def create
     @order = Order.new(order_params)
     @order.user = current_user
     @order.flight = @flight
     authorize @order
-
     if @order.save
-      redirect_to flight_path(@flight)
+      redirect_to users_show_path
     else
       render :new
     end

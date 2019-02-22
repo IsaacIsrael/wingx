@@ -11,8 +11,14 @@ function readURL(input) {
   }
 }
 
-$("#flight_photo").change(function() {
-  readURL(this);
-});
+function initReadUrl(){
+  var element = $("#flight_photo");
+  console.log('OI mundo cruel!!!!')
+  if (element){
+    element.change(function() {
+      readURL(this);
+    });
+  }
+}
 
-export { readURL };
+export { initReadUrl };

@@ -8,16 +8,23 @@
 
   .card {
     padding: $padding;
-    margin: -35px;
-    top: -50px;
-  }
-  .card-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    top: -100px;
   }
 
-  .price {
-    font-size: 25px;
+  .card-body{
+    flex-grow: 0;
+    padding: $padding;
+    & > div{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color:$black;
+    }
+    .avatar {
+      position: unset;
+    }
+    h4{
+      font-weight: lighter;
+    }
   }
 }
