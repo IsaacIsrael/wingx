@@ -15,5 +15,11 @@
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <script>
+      if(window.location.pathname == '/') {
+        const logo = document.getElementById("logo");
+        logo.src=  '<%= j image_path "logo-white.png" %>';
+      }
+    </script>
   </body>
 </html>
